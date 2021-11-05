@@ -10,7 +10,33 @@
   <div>
       微信昨日花销：<input id="wx" type="number">元<br>
       支付宝昨日花销：<input id="zfb" type="number">元<br>
-      <button>所有都输入后再提交</button>
+      <button onclick="b()">所有都输入后再提交</button>
   </div>
+
+  <input hidden type="text" id="lastV"/>
+
+<script>
+    function f() {
+            let list = ['微信','支付宝'];
+            let a= [];
+            let byTagName = document.getElementsByTagName("input");
+            for (let i = 0; i < byTagName.length-1; i++) {
+                let e = byTagName[i].value;
+                if (e=='' || e==undefined){
+                    e = 0;
+                }
+                a[i] = list[i]+ e +"元";
+            }
+        let message = a.toString();
+        document.getElementById("lastV").value=message;
+        return a;
+
+    }
+
+    function b() {
+        let f1 = f();
+        alert(f1)
+    }
+</script>
 </body>
 </html>
